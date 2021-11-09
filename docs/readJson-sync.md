@@ -1,11 +1,12 @@
-# readJsonSync(file[, options])
+# readJsonSync(file, [options])
 
-Reads a JSON file and then parses it into an object.
+Reads a JSON file and then parses it into an object. `options` are the same
+that you'd pass to [`jsonFile.readFileSync`](https://github.com/jprichardson/node-jsonfile#readfilesyncfilename-options).
 
 **Alias:** `readJSONSync()`
 
 - `file` `<String>`
-- `options` `<Object>` (the same as [`jsonFile.readFileSync()` options](https://github.com/jprichardson/node-jsonfile#readfilesyncfilename-options))
+- `options` `<Object>`
 
 ## Example:
 

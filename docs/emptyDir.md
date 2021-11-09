@@ -1,4 +1,4 @@
-# emptyDir(dir[, callback])
+# emptyDir(dir, [callback])
 
 Ensures that a directory is empty. Deletes directory contents if the directory is not empty. If the directory does not exist, it is created. The directory itself is not deleted.
 
@@ -6,7 +6,6 @@ Ensures that a directory is empty. Deletes directory contents if the directory i
 
 - `dir` `<String>`
 - `callback` `<Function>`
-  - `err` `<Error>`
 
 ## Example:
 
@@ -14,13 +13,13 @@ Ensures that a directory is empty. Deletes directory contents if the directory i
 const fs = require('fs-extra')
 
 // assume this directory has a lot of files and folders
-// With a callback:
 fs.emptyDir('/tmp/some/dir', err => {
   if (err) return console.error(err)
+
   console.log('success!')
 })
 
-// With Promises:
+// With promises
 fs.emptyDir('/tmp/some/dir')
 .then(() => {
   console.log('success!')
@@ -28,16 +27,4 @@ fs.emptyDir('/tmp/some/dir')
 .catch(err => {
   console.error(err)
 })
-
-// With async/await:
-async function example () {
-  try {
-    await fs.emptyDir('/tmp/some/dir')
-    console.log('success!')
-  } catch (err) {
-    console.error(err)
-  }
-}
-
-example()
 ```
