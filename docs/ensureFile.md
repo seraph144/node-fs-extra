@@ -1,4 +1,4 @@
-# ensureFile(file, [callback])
+# ensureFile(file[, callback])
 
 Ensures that the file exists. If the file that is requested to be created is in directories that do not exist, these directories are created. If the file already exists, it is **NOT MODIFIED**.
 
@@ -6,6 +6,7 @@ Ensures that the file exists. If the file that is requested to be created is in 
 
 - `file` `<String>`
 - `callback` `<Function>`
+  - `err` `<Error>`
 
 ## Example:
 
@@ -13,6 +14,8 @@ Ensures that the file exists. If the file that is requested to be created is in 
 const fs = require('fs-extra')
 
 const file = '/tmp/this/path/does/not/exist/file.txt'
+
+// With a callback:
 fs.ensureFile(file, err => {
   console.log(err) // => null
   // file has now been created, including the directory it is to be placed in
@@ -26,4 +29,16 @@ fs.ensureFile(file)
 .catch(err => {
   console.error(err)
 })
+
+// With async/await:
+async function example (f) {
+  try {
+    await fs.ensureFile(f)
+    console.log('success!')
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+example(file)
 ```
